@@ -5,8 +5,51 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+  <!-- MDB -->
+  <link rel="stylesheet" href="css/vendor/mdb.min.css" />
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="/css/custom/style.css" />
+
+
+
+  <!-- Custom scripts -->
+  <!-- <script type="text/javascript" src="js/script.js"></script> -->
+
 </head>
 <body>
+  
+  <div id="navPlace" style="height: 58px;"></div>
+
+  <div class="slideshow-container">
+    container
+  </div>
+
   <a href="/blog-template.html">aaaa</a>
+
+  <div id="footerPlace"></div>
+
+
 </body>
 </html>
+
+<!-- Jquery -->
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<!-- MDB -->
+<script type="text/javascript" src="js/vendor/mdb.min.js"></script>
+
+
+
+<script>
+  
+$(document).ready(function(){
+  $("#navPlace").load("/view/nav.html");
+  $("#footerPlace").load("/view/footer.html");
+});
+
+
+</script>
