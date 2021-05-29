@@ -102,6 +102,8 @@ $(document).ready(function(){
   let i = 1;
   mainBannerSlider(i);
   mainBannerSliderBtnActive();
+  
+  testaaa();
 });
 
 function pageInit(){
@@ -139,5 +141,22 @@ function loadByajax(url, place) {
   });
 }
 
+function testaaa() {
+  $.ajax({
+    url : "http://www.swime.kro.kr/getPopularGroupList",
+    dataType: "json",
+    data : {
+        pageNum : 1,
+        amount : 6
+    }
+  })
+  .done(function (result) {
+    console.log(result);
+  })
+  .fail(function () {
+
+  })
+}
+ 
 
 </script>

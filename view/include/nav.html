@@ -13,7 +13,7 @@
 
 
     <div class="collapse navbar-collapse" id="navbarExample01">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 innerPage">
         <li class="nav-item">
           <a class="nav-link" href="/view/blog.html">blog</a>
         </li>
@@ -45,7 +45,10 @@
             <i class="fab fa-github"></i>
           </a>
         </li> -->
-        <li>
+        <li class="nav-item me-3 me-lg-0">
+          <a class="nav-link" href="https://tht1234551.github.io/">github</a>
+        </li>
+        <li class="nav-item me-3 me-lg-0">
           우측
         </li>
       </ul>
@@ -56,8 +59,9 @@
 
 <script>
   navBtnActive();
+
   function navBtnActive() {
-    $(".navbar-nav > .nav-item > .nav-link").on("click", function (e) {
+    $(".innerPage > .nav-item > .nav-link").on("click", function (e) {
       e.preventDefault();
       $("#content").load(this.href);
     });
