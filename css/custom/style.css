@@ -11,12 +11,24 @@
     padding-top: .5625rem;
 }
 
-#content {
+#backgroundAndContent {
     background-image: url(../../img/mainBackground.jpg);
     background-size: cover;
+    background-position: center;
+    height: 1080px;
+    margin-top: -58px;
 }
 
+.spacer {
+    height: 58px;
+}
 
+nav {
+    /* -webkit-transition:width 2s, height 2s, background-color 2s, -webkit-transform 2s; */
+    /* transition:width 2s, height 2s, background-color 2s, transform 2s; */
+    -webkit-transition : background-color 1s;
+    transition : background-color 1s;
+}
 
 
 

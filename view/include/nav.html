@@ -12,7 +12,6 @@
       <i class="fas fa-bars"></i>
     </button>
 
-
     <div class="collapse navbar-collapse" id="navbarExample01">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 innerPage">
         <li class="nav-item">
@@ -50,7 +49,7 @@
           <a class="nav-link" href="https://tht1234551.github.io/">github</a>
         </li>
         <li class="nav-item me-3 me-lg-0">
-          <a class="nav-link" href="#">오른쪽</a>
+          <a class="nav-link" href="/blog-template.html">sample</a>
         </li>
       </ul>
     </div>
@@ -61,7 +60,7 @@
 <script>
   navBtnActive();
   navColorTrans();
-  
+  navTogglerAction();
   function navBtnActive() {
     $(".innerPage > .nav-item > .nav-link").on("click", function (e) {
       e.preventDefault();
@@ -71,6 +70,41 @@
   }
 
   function navColorTrans() {
-    
+    $(window).scroll(function () {
+      // console.log($(window).scrollTop());
+      let con = $(".navbar-toggler")[0].ariaExpanded === "true";
+      if(con) return;
+      
+      if($(window).scrollTop() > 0) {
+        whiteNav();
+      }
+      else{
+        notWhiteNav();
+      }
+    })
+  }
+
+  function navTogglerAction() {
+    $("nav > .container-fluid > .navbar-toggler").on("click", function () {
+      let con = this.ariaExpanded === "true";
+      if(con){
+        whiteNav();
+      }
+      else{
+        notWhiteNav();
+      }
+    })
+  }
+
+  function whiteNav() {
+    $("nav").addClass("bg-white");
+    $("nav").addClass("navbar-light");
+    $("nav").removeClass("navbar-dark");
+  }
+
+  function notWhiteNav() {
+    $("nav").removeClass("bg-white");
+    $("nav").removeClass("navbar-light");
+    $("nav").addClass("navbar-dark");
   }
 </script>
