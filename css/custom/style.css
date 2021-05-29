@@ -1,10 +1,8 @@
 /* Slideshow container */
 .slideshow-container {
-    max-width: 1000px;
+    max-width: 80%;
     position: relative;
     margin: auto;
-    
-    display: -webkit-box;
     overflow: hidden;
 }
 
@@ -26,6 +24,30 @@
     to {opacity: 1}
 }
 
-.mySlides {
-    /* display: none */
+.slide_box{
+    width: 200px;
+    position: relative;
+    left: 50%;
+    margin-left: -100px;
+    top: 400px;
+    border: 5px blue solid;
+    z-index: 100;
+}
+.slide_wrap{
+    background: red;
+    width: 1000px;
+    margin: 0;
+    padding: 0;
+}
+.slide_item{
+    background: green;
+    width: 200px;
+    list-style: none;
+    float: left;
+    text-align: center;
+    line-height: 50px;
+}
+.slide_item a{
+    text-decoration: none;
+    color : black;
 }
