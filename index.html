@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <title>Document</title>
 
   <!-- Font Awesome -->
@@ -17,74 +16,15 @@
   <link rel="stylesheet" href="/css/custom/style.css" />
 
 
-
-  <!-- Custom scripts -->
-  <!-- <script type="text/javascript" src="js/script.js"></script> -->
-
 </head>
 <body>
+
   <div id="navPlace" style="height: 58px;"></div>
-  
-  <div id="content">
-    <div class="slideshow-container"> 
-      <ul class="slideshow-box" style="width: 2000px;">
-          <li class="slide_item"><a href="#">1</a></li>
-          <li class="slide_item"><a href="#">2</a></li>
-          <li class="slide_item"><a href="#">3</a></li>
-          <li class="slide_item"><a href="#">4</a></li>
-          <li class="slide_item"><a href="#">5</a></li>
-      </ul>
-    </div>
-
-    <div class="slideshow-container">
-      <div class="slideshow-box"
-      style="display: -webkit-box;
-      left: 0px;
-      position: relative;">
-
-        <div class="mySlides mainBannerFade">
-          <div class="numbertext">1 / 3</div>
-          <img src="/img/img1.jpg" style="width:100%">
-          <div class="text">Caption Text</div>
-        </div>
-        
-        <div class="mySlides mainBannerFade">
-          <div class="numbertext">2 / 3</div>
-          <img src="/img/img2.jpg" style="width:100%">
-          <div class="text">Caption Two</div>
-        </div>
-        
-        <div class="mySlides mainBannerFade">
-          <div class="numbertext">3 / 3</div>
-          <img src="/img/img3.jpg" style="width:100%">
-          <div class="text">Caption Three</div>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <a id="sliderPrev">&#10094;</a>
-      <a id="sliderNext">&#10095;</a>
-    </div>
-    <div style="height: 2000px;width: 100%;background-color: blue;"></div>
-  </div>
-  
-  
-  
-
-  <a href="/blog-template.html">sample</a>
-
+  <div id="content"></div>
   <div id="footerPlace"></div>
-
 
 </body>
 </html>
-
-
-
-
-
-
 
 
 
@@ -92,72 +32,5 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <!-- MDB -->
 <script type="text/javascript" src="js/vendor/mdb.min.js"></script>
-
-
-
-<script>
-  
-$(document).ready(function(){
-  pageInit();
-
-  let i = 1;
-  mainBannerSlider(i);
-  mainBannerSliderBtnActive();
-  
-  testaaa();
-});
-
-function pageInit(){
-  loadByajax('/view/include/nav', $("#navPlace"));
-  loadByajax('/view/include/footer', $("#footerPlace"));
-}
-
-
-function mainBannerSlider(index){
-  
-}
-
-function mainBannerSliderBtnActive(){
-  $("#sliderPrev").on("click", function(){
-    console.log("prev");
-    $(".slideshow-box").css({left : $(".slideshow-box")[0].offsetLeft + 800.8 + 'px'});
-  });
-
-  $("#sliderNext").on("click", function(){
-    console.log("next");
-    $(".slideshow-box").css({left : $(".slideshow-box")[0].offsetLeft - 800.8 + 'px'});
-  });
-
-}
-
-function loadByajax(url, place) {
-  $.ajax({
-      url : url + '.html',
-  })
-  .done(function (data, textStatus, xhr) {
-    $(place).html(data);
-  })
-  .fail(function(data, textStatus, errorThrown){
-    console.log("error!!!");
-  });
-}
-
-function testaaa() {
-  $.ajax({
-    url : "http://www.swime.kro.kr/getPopularGroupList",
-    dataType: "json",
-    data : {
-        pageNum : 1,
-        amount : 6
-    }
-  })
-  .done(function (result) {
-    console.log(result);
-  })
-  .fail(function () {
-
-  })
-}
- 
-
-</script>
+<!-- Custom scripts -->
+<script type="text/javascript" src="js/custom/script.js"></script>
