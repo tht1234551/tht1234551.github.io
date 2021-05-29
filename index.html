@@ -65,8 +65,9 @@
       <a id="sliderPrev">&#10094;</a>
       <a id="sliderNext">&#10095;</a>
     </div>
+    <div style="height: 2000px;width: 100%;background-color: blue;"></div>
   </div>
-  <div style="height: 2000px;width: 100%;background-color: blue;"></div>
+  
   
   
 
@@ -91,6 +92,8 @@
 <!-- MDB -->
 <script type="text/javascript" src="js/vendor/mdb.min.js"></script>
 
+
+
 <script>
   
 $(document).ready(function(){
@@ -102,8 +105,8 @@ $(document).ready(function(){
 });
 
 function pageInit(){
-  $("#navPlace").load("/view/include/nav.html");
-  $("#footerPlace").load("/view/include/footer.html");
+  loadByajax('/view/include/nav', $("#navPlace"));
+  loadByajax('/view/include/footer', $("#footerPlace"));
 }
 
 
@@ -122,6 +125,18 @@ function mainBannerSliderBtnActive(){
     $(".slideshow-box").css({left : $(".slideshow-box")[0].offsetLeft - 800.8 + 'px'});
   });
 
+}
+
+function loadByajax(url, place) {
+  $.ajax({
+      url : url + '.html',
+  })
+  .done(function (data, textStatus, xhr) {
+    $(place).html(data);
+  })
+  .fail(function(data, textStatus, errorThrown){
+    console.log("error!!!");
+  });
 }
 
 
