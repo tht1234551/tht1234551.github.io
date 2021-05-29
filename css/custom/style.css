@@ -15,9 +15,19 @@
     background-image: url(../../img/mainBackground.jpg);
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     height: 1080px;
     margin-top: -58px;
 }
+
+#backgroundAndContent::before {
+    background-color: black;
+}
+
+#backgroundAndContent::after {
+    background-color: black;
+}
+
 
 .spacer {
     height: 58px;
@@ -92,4 +102,8 @@ nav {
 .slide_item a{
     text-decoration: none;
     color : black;
+}
+
+#content{
+    color: white;
 }
