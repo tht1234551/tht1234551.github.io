@@ -24,16 +24,47 @@
 
 <script>
     
-    $(document).ready(async ()=>{
-        await transformBox(15); // 상자 돌리기
-        await moveBox(44);
-        await textMoveDown(23);
-        await textMoveLeft(0);
-        await textMoveUp(23);
-        await sizeDown(10);
-        await transformBox2(15);
-        await transformBox3(1);
-    })
+    $(document).ready(()=>{
+        let widowSize = checkSize();
+        animation(widowSize);
+    });
+
+    async function animation(widowSize) {
+        if(widowSize >= 800) {
+            await transformBox(15); // 상자 돌리기
+            await moveBox(44);
+            await textMoveDown(23);
+            await textMoveLeft(0);
+            await textMoveUp(23);
+            await transformBox2(15);
+            await transformBox3(1, 30);
+        }
+        else if(widowSize < 800){
+            console.log("800보다 작습니다");
+            smallSize();
+            await transformBox(7); // 상자 돌리기
+            await moveBox(19);
+            await textMoveDown(15);
+            await textMoveLeft(0);
+            await textMoveUp(15);
+            await transformBox2(15);
+            await transformBox3(1, 13);
+        }
+        
+    }
+
+    function smallSize(params) {
+        
+    }
+
+
+    function checkSize() {
+        let height = window.innerWidth;
+        $(window).resize(function (){
+            height = window.innerWidth;
+        });
+        return height;
+    }
 
     function transformBox(size) {
         return new Promise((resolve, reject)=>{
@@ -58,15 +89,15 @@
         });
     }
 
-    function transformBox3(size) {
+    function transformBox3(size, boxSize) {
         return new Promise((resolve, reject)=>{
-            setTimeout(function (size) {
+            setTimeout(function (size, boxSize) {
                 console.log("transformBox3");
                 $("#box").css("width", size + 'rem');
                 $(".leftContent").css("width", size + 'rem');
-                $(".myselfBox").css("width", 30 + 'rem');
+                $(".myselfBox").css("width", boxSize + 'rem');
                 resolve();
-            }, 1000, size);
+            }, 1000, size, boxSize);
         });
     }
 
@@ -80,14 +111,6 @@
         });
     }
 
-    function sizeDown(size) {
-        return new Promise((resolve, reject)=>{
-            setTimeout(function (size) {
-                console.log("sizedown");
-                resolve();
-            }, 500, size);
-        });
-    }
 
     function textMoveDown(locale) {
         return new Promise((resolve, reject)=>{

@@ -111,10 +111,26 @@ nav {
     color : black;
 }
 
+
+
+
+
 #content{
     color: white;
     z-index: 10;
     position: relative;
+}
+
+
+
+
+.myself {
+    margin-top: -58px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
 }
 
 .myself * {
@@ -129,14 +145,6 @@ nav {
     color: #ffffff8a;
 }
 
-.myself {
-    margin-top: -58px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
-}
 .myselfBox {
     display: -webkit-inline-box;width: 15rem;
     height: 15rem;
@@ -161,7 +169,6 @@ nav {
 .rightContent > span {
     display: block;
     overflow: hidden;
-    height: 61px;
 }
 
 .rightContent > span > h1 {
@@ -169,13 +176,14 @@ nav {
 }
 
 
-.rightContent > span:first-child > h1 {
-    /* margin-top: 0.1rem; */
+.rightContent > span:nth-child(1) {
+    height: 61px;
 }
 .rightContent > span:nth-child(2),
 .rightContent > span:nth-child(3) {
     height: 84px;
 }
+
 .rightContent > span:nth-child(2) > h1 {
     margin-top: -61px;
 }
@@ -199,4 +207,30 @@ nav {
     height: 0;
     background-color: rgba(114, 82, 255, 0.733);
     position: absolute;
+}
+
+@media screen and (max-width: 800px) {
+    .myself * {
+        font-size: 1.5rem;
+    }
+
+    .myselfBox {
+        display: -webkit-inline-box;
+        width: 7rem;
+        height: 7rem;
+        overflow: hidden;
+    }
+
+    .rightContent > span:nth-child(1) {
+        height: 28px;
+    }
+    .rightContent > span:nth-child(2),
+    .rightContent > span:nth-child(3) {
+        height: 43px;
+    }
+
+    .leftContent {
+        width: 7rem;
+        height: 7rem;
+    }
 }
