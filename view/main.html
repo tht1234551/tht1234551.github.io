@@ -1,8 +1,29 @@
-<h1>
-    안녕하세요<br>
-    개발자<br>
-    정형진입니다
-</h1>
+<div class="myself">
+    <div id="box"></div>
+    <h1>
+        <div>
+            안녕하세요<br>
+            개발자 정형진의<br>
+            포트폴리오입니다
+        </div>
+    </h1>
+</div>
+<script>
+    
+    $(document).ready(function () {
+        setTimeout(sizeUp, 100, 14);
+
+    })
+
+    function sizeUp(size) {
+        $("#box").css("width", size + 'rem');
+        $("#box").css("height", size + 'rem');
+        $("#box").css("transform", 'rotateZ(180deg)');
+        $("#box").css("transition", "width 1s, height 1s, transform 1s");
+    }
+
+</script>
+
 <!-- <img src="/img/mainBackground.jpg" style="width:100%;margin-top: -58px;"> -->
 
 

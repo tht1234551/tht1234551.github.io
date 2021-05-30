@@ -5,6 +5,8 @@
 
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+
 .navbar {
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -16,15 +18,20 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    height: 1080px;
+    height: 100vh;
     margin-top: -58px;
 }
 
 #backgroundAndContent::before {
-    background-color: black;
+	content:"";
+	position: absolute;
+	z-index: 1;
+	top: 0; right: 0; bottom: 0; left: 0;
+	background-color: rgba(0, 0, 0, 0.3);
 }
 
 #backgroundAndContent::after {
+    z-index: 3;
     background-color: black;
 }
 
@@ -106,4 +113,28 @@ nav {
 
 #content{
     color: white;
+    z-index: 10;
+    position: relative;
+}
+
+.myself {
+    margin-top: -58px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    font-size: 4rem;
+    font-family: 'Black Han Sans', sans-serif;
+}
+
+.myself > h1 {
+    font-size: 4rem;
+    font-family: 'Black Han Sans', sans-serif;
+}
+
+#box {
+    width: 0;
+    height: 0;
+    background-color: burlywood;
 }
