@@ -7,6 +7,39 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 
+
+body {
+    background-image: url(../../img/mainBackground.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100%;
+}
+
+body::before{
+	content:"";
+	position: absolute;
+	z-index: 1;
+	top: 0; right: 0; bottom: 0; left: 0;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+.view100 {
+    height: 100%;
+    width: 100%;
+}
+
+
+.view80 {
+    margin: auto;
+    width: 80%;
+}
+
+/* #content{
+    width: 80%;
+    margin: auto;
+} */
+
 .navbar {
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -14,20 +47,20 @@
 }
 
 #backgroundAndContent {
-    background-image: url(../../img/mainBackground.jpg);
+    /* background-image: url(../../img/mainBackground.jpg);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     height: 100vh;
-    margin-top: -58px;
+    margin-top: -58px; */
 }
 
 #backgroundAndContent::before {
-	content:"";
+	/* content:"";
 	position: absolute;
 	z-index: 1;
 	top: 0; right: 0; bottom: 0; left: 0;
-	background-color: rgba(0, 0, 0, 0.3);
+	background-color: rgba(0, 0, 0, 0.3); */
 }
 
 #backgroundAndContent::after {
@@ -47,7 +80,10 @@ nav {
     transition : background-color 1s;
 }
 
-
+#footerPlace {
+    z-index: 10;
+    position: relative;
+}
 
 
 
@@ -211,9 +247,13 @@ nav {
 }
 
 @media screen and (max-width: 800px) {
+    .myself {
+        margin-top: -58px;
+        height: 90vh;
+    }
+
     .myself * {
         font-size: 1.5rem;
-        height: 90vh;
     }
 
     .myselfBox {
@@ -245,4 +285,7 @@ nav {
         width: 7rem;
         height: 7rem;
     }
+}
+pre {
+    margin-bottom: 0rem;
 }

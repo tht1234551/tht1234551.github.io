@@ -6,7 +6,7 @@
     <a class="navbar-brand" href="/">
       <i class="fab fa-github" style="font-size: 32px;"></i>
     </a>
-    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
+    <button id="navCollapseBtn" class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
       aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
     </button>
@@ -60,39 +60,45 @@
   navBtnActive();
   navColorTrans();
   navTogglerAction();
+  navCollapseBtnClick()
+
   function navBtnActive() {
     $(".innerPage > .nav-item > .nav-link").on("click", function (e) {
       e.preventDefault();
       loadByajax(this.href, $("#content"));
+      $("#content").addClass("bg-white text-dark");
+      let windowSize = window.innerWidth;
+      if(windowSize <= 991) {
+        $("#navCollapseBtn").click();
+        let con = $(".navbar-toggler")[0].ariaExpanded === "true";
+        navColorChange(con);
+      }
       // $("#content").load(this.href);
     });
   }
 
   function navColorTrans() {
     $(window).scroll(function () {
-      // console.log($(window).scrollTop());
       let con = $(".navbar-toggler")[0].ariaExpanded === "true";
       if(con) return;
-      
-      if($(window).scrollTop() > 0) {
-        whiteNav();
-      }
-      else{
-        notWhiteNav();
-      }
-    })
+      navColorChange($(window).scrollTop() > 0);
+    });
   }
 
   function navTogglerAction() {
     $("nav > .container-fluid > .navbar-toggler").on("click", function () {
       let con = this.ariaExpanded === "true";
-      if(con){
-        whiteNav();
-      }
-      else{
-        notWhiteNav();
-      }
-    })
+      navColorChange(con);
+    });
+  }
+
+  function navColorChange(condition) {
+    if(condition){
+      whiteNav();
+    }
+    else{
+      notWhiteNav();
+    }
   }
 
   function whiteNav() {
@@ -106,4 +112,13 @@
     $("nav").removeClass("navbar-light");
     $("nav").addClass("navbar-dark");
   }
+
+  function navCollapseBtnClick() {
+    $("#navCollapseBtn").on("click",()=>{
+      console.log("collapse");
+    });
+  }
+
+
+
 </script>
