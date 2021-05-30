@@ -25,7 +25,7 @@
 <script>
     
     $(document).ready(()=>{
-        let widowSize = checkSize();
+        let widowSize = window.innerWidth;
         animation(widowSize);
     });
 
@@ -41,7 +41,6 @@
         }
         else if(widowSize < 800){
             console.log("800보다 작습니다");
-            smallSize();
             await transformBox(7); // 상자 돌리기
             await moveBox(19);
             await textMoveDown(15);
@@ -51,19 +50,6 @@
             await transformBox3(1, 13);
         }
         
-    }
-
-    function smallSize(params) {
-        
-    }
-
-
-    function checkSize() {
-        let height = window.innerWidth;
-        $(window).resize(function (){
-            height = window.innerWidth;
-        });
-        return height;
     }
 
     function transformBox(size) {

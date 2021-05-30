@@ -177,6 +177,7 @@ nav {
 
 
 .rightContent > span:nth-child(1) {
+    margin-top: 0.1rem;
     height: 61px;
 }
 .rightContent > span:nth-child(2),
@@ -212,6 +213,7 @@ nav {
 @media screen and (max-width: 800px) {
     .myself * {
         font-size: 1.5rem;
+        height: 90vh;
     }
 
     .myselfBox {
@@ -221,12 +223,22 @@ nav {
         overflow: hidden;
     }
 
+
+
     .rightContent > span:nth-child(1) {
         height: 28px;
     }
     .rightContent > span:nth-child(2),
     .rightContent > span:nth-child(3) {
         height: 43px;
+    }
+
+    .rightContent > span:nth-child(2) > h1 {
+        margin-top: -25px;
+    }
+
+    .rightContent > span:nth-child(3) > h1 {
+        margin-top: 40px;
     }
 
     .leftContent {
