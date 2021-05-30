@@ -117,6 +117,12 @@ nav {
     position: relative;
 }
 
+.myself * {
+    transition: width 1s ease 0s, height 1s ease 0s, transform 1s ease 0s;
+    font-size: 4rem;
+    font-family: 'Black Han Sans', sans-serif;
+}
+
 .myself {
     margin-top: -58px;
     display: flex;
@@ -124,17 +130,35 @@ nav {
     align-items: center;
     height: 100vh;
     width: 100%;
-    font-size: 4rem;
-    font-family: 'Black Han Sans', sans-serif;
+}
+.myselfBox {
+    display: -webkit-inline-box;width: 15rem;
+    height: 15rem;
+    overflow: hidden;
 }
 
-.myself > h1 {
-    font-size: 4rem;
-    font-family: 'Black Han Sans', sans-serif;
+.leftContent {
+    display: flex;
+    width: 15rem;
+    height: 15rem;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.rightContent {
+    display: block;
+    transition:none;
+    width: 28rem;
+}
+
+.rightContent > span {
+
 }
 
 #box {
     width: 0;
     height: 0;
     background-color: burlywood;
+    position: absolute;
 }
