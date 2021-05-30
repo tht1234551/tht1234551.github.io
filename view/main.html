@@ -4,30 +4,69 @@
             <div id="box"></div>
         </span>
         <span class="rightContent">
-            <span><h1>안녕하세요.</h1></span>
-            <span><h1>개발자 정형진의</h1></span>
-            <span><h1>포트폴리오입니다.</h1></span>
+            <span>
+                <h1>안녕하세요.</h1>
+            </span>
+            <span>
+                <h1>
+                    <span>개발자</span>
+                    <span>
+                        <span><span style="color: white;">정형진</span>의</span>
+                    </span>
+                </h1>
+            </span>
+            <span>
+                <h1>포트폴리오입니다.</h1>
+            </span>
         </span>
     </div>
 </div>
 
 <script>
     
-    $(document).ready(async function () {
-        await sizeUp(15);
+    $(document).ready(async ()=>{
+        await transformBox(15); // 상자 돌리기
         await moveBox(44);
+        await textMoveDown(23);
+        await textMoveLeft(0);
+        await textMoveUp(23);
+        await sizeDown(10);
+        await transformBox2(15);
+        await transformBox3(1);
     })
 
-    function sizeUp(size) {
+    function transformBox(size) {
         return new Promise((resolve, reject)=>{
             setTimeout(function (size) {
-                console.log("sizeUp");
+                console.log("transformBox");
                 $("#box").css("width", size + 'rem');
                 $("#box").css("height", size + 'rem');
                 $("#box").css("transform", 'rotateZ(180deg)');
-                $("#box").css("transition", "width 1s, height 1s, transform 1s");
+                // $("#box").css("transition", "width 1s, height 1s, transform 1s");
                 resolve();
             }, 100, size);
+        });
+    }
+
+    function transformBox2(size) {
+        return new Promise((resolve, reject)=>{
+            setTimeout(function (size) {
+                console.log("transformBox2");
+                $("#box").css("transform", 'rotateZ(0deg)');
+                resolve();
+            }, 500, size);
+        });
+    }
+
+    function transformBox3(size) {
+        return new Promise((resolve, reject)=>{
+            setTimeout(function (size) {
+                console.log("transformBox3");
+                $("#box").css("width", size + 'rem');
+                $(".leftContent").css("width", size + 'rem');
+                $(".myselfBox").css("width", 30 + 'rem');
+                resolve();
+            }, 1000, size);
         });
     }
 
@@ -38,6 +77,45 @@
                 $(".myself > div").css("width", size + 'rem');
                 resolve();
             }, 1000, size);
+        });
+    }
+
+    function sizeDown(size) {
+        return new Promise((resolve, reject)=>{
+            setTimeout(function (size) {
+                console.log("sizedown");
+                resolve();
+            }, 500, size);
+        });
+    }
+
+    function textMoveDown(locale) {
+        return new Promise((resolve, reject)=>{
+            setTimeout(function (locale) {
+                console.log("textMoveDown");
+                $(".rightContent > span:nth-child(2) > h1").css("margin-top" , locale + 'px');
+                resolve();
+            }, 500, locale);
+        });
+    }
+
+    function textMoveLeft(locale) {
+        return new Promise((resolve, reject)=>{
+            setTimeout(function (locale) {
+                console.log("textMoveLeft");
+                $(".rightContent > span:nth-child(2) > h1 > span:nth-child(2) > span").css("margin-left" , locale + 'px');
+                resolve();
+            }, 500, locale);
+        });
+    }
+
+    function textMoveUp(locale) {
+        return new Promise((resolve, reject)=>{
+            setTimeout(function (locale) {
+                console.log("textMoveUp");
+                $(".rightContent > span:nth-child(3) > h1").css("margin-top" , locale + 'px');
+                resolve();
+            }, 500, locale);
         });
     }
 

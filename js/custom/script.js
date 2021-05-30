@@ -1,4 +1,4 @@
-console.log("script...");
+console.log("script Module load...");
 
 
 $(document).ready(function(){
