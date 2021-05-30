@@ -67,8 +67,8 @@
       e.preventDefault();
       loadByajax(this.href, $("#content"));
       $("#content").addClass("bg-white text-dark");
-      let windowSize = window.innerWidth;
-      if(windowSize <= 991) {
+
+      if(window.innerWidth <= 991) {
         $("#navCollapseBtn").click();
         let con = $(".navbar-toggler")[0].ariaExpanded === "true";
         navColorChange(con);
@@ -111,12 +111,6 @@
     $("nav").removeClass("bg-white");
     $("nav").removeClass("navbar-light");
     $("nav").addClass("navbar-dark");
-  }
-
-  function navCollapseBtnClick() {
-    $("#navCollapseBtn").on("click",()=>{
-      console.log("collapse");
-    });
   }
 
 
