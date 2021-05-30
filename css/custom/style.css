@@ -233,7 +233,7 @@ nav {
 @media screen and (max-width: 800px) {
     .myself {
         margin-top: -58px;
-        height: 90vh;
+        height: 100vh;
     }
 
     .myself * {
@@ -245,6 +245,7 @@ nav {
         width: 7rem;
         height: 7rem;
         overflow: hidden;
+        margin-top: -5rem;
     }
 
 
@@ -269,7 +270,41 @@ nav {
         width: 7rem;
         height: 7rem;
     }
+    
 }
-pre {
-    margin-bottom: 0rem;
+.aboutMe {
+    display: flex;
+}
+
+.aboutMe > span {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutMe > span:nth-child(1){
+    font-size: 2rem;
+    width: 30%;
+    background-color: teal;
+}
+.aboutMe > span:nth-child(2){
+    width: 70%;
+    background-color: violet;
+}
+
+@media screen and (max-width: 800px) {
+    .aboutMe {
+        display: block;
+    }
+
+    .aboutMe > span:nth-child(1){
+        font-size: 2rem;
+        width: 100%;
+        background-color: teal;
+    }
+    .aboutMe > span:nth-child(2){
+        width: 100%;
+        background-color: violet;
+    }
 }
