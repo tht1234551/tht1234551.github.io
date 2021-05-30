@@ -43,13 +43,35 @@ function saveToFile_Chrome(fileName, content) {
 
 function GetgoogleSpreadSheet(sheet){
     $.ajax({
-        url : "https://script.google.com/macros/s/AKfycbxEm7qiFTo-9hLwLacNAFXrJEWRQaetnFyeQL_SKqn2do8Lhuwt/exec?sheetName=" + sheet
+        url : "https://script.google.com/macros/s/AKfycbxEm7qiFTo-9hLwLacNAFXrJEWRQaetnFyeQL_SKqn2do8Lhuwt/exec?sheetName=" + sheet,
+        dataType: 'jsonp',
+        contentType:'application/json',
+        cors: true
     })
     .done((result)=>{
         console.log(result);
     })
     .fail((result)=>{
         console.log(result);
+    });
+}
+
+function afficheorga(sheet){
+    $.ajax({
+        url: "https://script.google.com/macros/s/AKfycbxEm7qiFTo-9hLwLacNAFXrJEWRQaetnFyeQL_SKqn2do8Lhuwt/exec?sheetName=" + sheet,
+        type: 'GET',
+        dataType: 'jsonp',
+        cors: true ,
+        contentType:'application/json',
+        secure: true,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        }
     })
-    ;
+    .done((result)=>{
+        console.log(result);
+    })
+    .fail((result)=>{
+        console.log(result);
+    });
 }
