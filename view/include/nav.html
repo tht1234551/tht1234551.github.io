@@ -87,7 +87,7 @@
   function navTogglerAction() {
     $("nav > .container-fluid > .navbar-toggler").on("click", function () {
       let con = this.ariaExpanded === "true";
-      navColorChange(con);
+      if(!($(window).scrollTop() > 0)) navColorChange(con);
     });
   }
 

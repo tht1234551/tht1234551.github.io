@@ -1,35 +1,43 @@
-console.log("exel test module...");
+console.log("database module...");
 
 
-let url = "https://script.google.com/macros/s/AKfycbzvGu1CYpbtxnvORlmh1B8yLXp1MioY_3nCDg5pZZMr6LbaPsxvlj9RRlEvzcfc_xYYmA/exec";
+let url = "https://script.google.com/macros/s/AKfycbzazQUp_6bTyENxqQvQ7JggWael_J_vnldywywmKjYMPBbt0-GdzTCSlC3InUgEebwJFg/exec";
 
 function write(){
     return new Promise((res, rej)=>{
         $.ajax({
             url: url,
-            data: {A:"a", B:"f"},
-            type: "POST"
+            type: "POST",
+            data: {
+                A:"a",
+                B:"f",
+                sheetName : "test"
+            }
         }).done((result)=>{
             console.log(result);
             res(result);
         }).fail(()=>{
             console.log("fail");
-            rej("fail");
+            rej();
         });
     });
 }
 
-function load(){
+function read(getType, sheetName){
     return new Promise((res, rej)=>{
         $.ajax({
             url: url,
-            type: "GET"
+            type: "GET",
+            data : {
+                getType : getType,
+                sheetName : sheetName
+            }
         }).done((result)=>{
             console.log(result);
             res(result);
         }).fail(()=>{
             console.log("fail");
-            rej("fail");
+            rej();
         });
     })
 }

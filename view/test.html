@@ -1,6 +1,7 @@
 <div class="view80">
     <div>
-        <button id="testBtn" class="btn btn-primary m-1" type="button">test</button>
+        <button id="testBtn" class="btn btn-primary m-1" type="button">읽기, 쓰기 테스트</button>
+        <button id="readtableBtn" class="btn btn-primary m-1" type="button">테이블 이름 불러오기</button>
     </div>
     <div class="flex">
         <div>읽기 테스트 : </div>
@@ -10,25 +11,54 @@
         <div>쓰기 테스트 : </div>
         <div id="write"></div>
     </div>
-    
+    <div class="flex">
+        <div>테이블 이름 : </div>
+        <div id="readtable"></div>
+    </div>
 </div>
 
 <script>
+    let getTypelist = {
+        sheetNames : "시트 목록 요청",
+        data : "해당 시트의 데이트 요청"
+    }
+
     $(document).ready(async ()=>{
         testBtnClick();
-        
+        readTable();
     });
 
     function testBtnClick() {
         $("#testBtn").on("click", ()=>{
+            let getType = "data";
+            let sheetname = "test";
+
             $("#read").html("connect...");
             $("#write").html("connect...");
-            load().then((result)=>{
+
+            read(getType, sheetname).then((result)=>{
                 $("#read").html(result.result);
             });
+
             write().then((result)=>{
                 $("#write").html(result.result);
             })
         });
+    }
+
+    function readTable() {
+        $("#readtableBtn").on("click", ()=>{
+            $("#readtable").html("connect...");
+            read("sheetNames").then((result)=>{
+
+                let resultHtml = "";
+                for (let i = 0; i < result.sheetName.length; i++) {
+                    resultHtml += result.sheetName[i][0] + ', ';
+                }
+                resultHtml = "(" + resultHtml + ")";
+
+                $("#readtable").html(result.result + resultHtml);
+            });
+        })
     }
 </script>
