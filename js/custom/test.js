@@ -109,10 +109,10 @@ function getActionHandler(e) {
     var getType = e.parameter["getType"];
     var sheetName = e.parameter["sheetName"];
 
-    if(getType === undefined || getType === '') throw new Error('Parameter getType is undefined');
+    checkgetType(getType);
     
     if(getType === 'data'){
-      if(sheetName === undefined || sheetName === '') throw new Error('Parameter sheetName is undefined');
+      checkSheetName(sheetName);
       var sheet = DOC.getSheetByName(sheetName);
 
       var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
@@ -133,15 +133,18 @@ function getActionHandler(e) {
       }
 
       returnData = {
-        data : data,
+        list : data,
         sheetName : sheetName,
-        getType : getType
+        getType : getType,
+        dataType : 'sheetData',
+
       }
     }
 
     if(getType === 'sheetNames'){
       returnData = {
-        sheetName: sheetNames()
+        dataType : 'sheetNames',
+        list: sheetNames()
       }
     }
     
@@ -174,14 +177,20 @@ function getActionHandler(e) {
 function sheetNames() {
   var out = new Array()
   var sheets = SpreadsheetApp.getActiveSpreadsheet().getSheets();
-  for (var i=0 ; i<sheets.length ; i++) out.push( [ sheets[i].getName() ] )
+  for (var i=0 ; i<sheets.length ; i++) out.push(sheets[i].getName())
   console.log(out);
   return out 
 }
 
-function checkParams(sheetName, getType) {
-  if(sheetName === undefined || sheetName === '') throw new Error('Parameter sheetName is undefined');
-  if(getType === undefined || getType === '') throw new Error('Parameter getType is undefined');
+
+function checkSheetName(sheetName) {
+  if(sheetName === undefined || sheetName === '')
+    throw new Error('Parameter sheetName is undefined');
+}
+
+function checkgetType(getType) {
+  if(getType === undefined || getType === '')
+    throw new Error('Parameter getType is undefined');
 }
 
 function setup() {
