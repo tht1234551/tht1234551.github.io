@@ -1,7 +1,7 @@
 console.log("database module...");
 
 
-let url = "https://script.google.com/macros/s/AKfycbycAiPwJ4Sx1-hUQD1hyT2iW9jUgpN9Y02kgUvlWY5s6mve19_SYWc8P1py8Jj0OqsGHw/exec";
+let url = "https://script.google.com/macros/s/AKfycbzgiq5_xHTEccY9LdqD6im_eiQsdKauZsrQxRBu-YcRHdOSC9MIL1ozf8DlyODVnWaqRA/exec";
 
 function write(){
     return new Promise((res, rej)=>{

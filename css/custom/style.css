@@ -308,3 +308,7 @@ nav {
 .flex{
     display: flex;
 }
+
+.alignItems {
+    align-items: center;
+}

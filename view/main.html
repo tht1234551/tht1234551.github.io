@@ -31,7 +31,9 @@
 
 
 <script>
-    
+    user = JSON.parse(getCookie("user"));
+
+
     $(document).ready(()=>{
         let widowSize = window.innerWidth;
         animation(widowSize);

@@ -1,12 +1,30 @@
 console.log("navbar module...");
 
 
+
+
+
+
 $(document).ready( function() {
+    loginNav();
     navBtnActive();
     navColorTrans();
     navTogglerAction();
     loadByajax("/view/loginModal", $("#loginModal"));
+    
 });
+
+function loginNav(params) {
+    if(isLogin()){
+        $("#loginBtn").hide();
+        $("#logoutBtn").show();
+    }
+    else {
+        
+    }
+}
+
+
 
 
 function navBtnActive() {
@@ -26,6 +44,11 @@ function navBtnActive() {
     $("#loginBtn").on("click", (e)=>{
         console.log('login');
         // $("body").css("margin-right", 17 + 'px');      
+    });
+
+    $("#logoutBtn").on("click", (e)=>{
+        deleteCookie("user");
+        $(location).attr('href','/');
     });
 }
 
