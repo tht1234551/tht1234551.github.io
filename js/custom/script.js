@@ -1,11 +1,12 @@
 console.log("script Module load...");
 
+pageInit();
 
-$(document).ready(function(){
-    pageInit();
-  
+$(document).ready(()=>{
+    documentClick();
 });
-  
+
+
 function pageInit(){
     loadByajax('/view/include/nav', $("#navPlace"));
     loadByajax('/view/main', $("#content"));
@@ -23,5 +24,32 @@ function loadByajax(url, place) {
     })
     .fail(function(data, textStatus, errorThrown){
         console.log("error!!!");
+    });
+}
+
+function getUrlParams() {     
+    var params = {};  
+    window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, 
+        function(str, key, value) { 
+            params[key] = value; 
+        }
+    );     
+    return params;
+}
+
+function getFormParams(obj) {  
+    let arg = $(obj).serialize();
+    var params = {};  
+    arg.replace(/([^=&]+)=([^&]*)/gi,
+        function(str, key, value) { 
+            params[key] = value; 
+        }
+    );     
+    return params;
+}
+
+function documentClick() {
+    $(document).on("click",()=>{
+        console.log("document click");
     });
 }

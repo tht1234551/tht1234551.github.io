@@ -1,0 +1,71 @@
+<div class="view80">
+    <div style="
+        margin-top: 50px;
+        display: inline-flex;">
+        <form id="cookieTestForm" style="width: 300px;">
+            <div class="form-outline mb-4">
+                <input type="text" id="name" name="name" class="form-control">
+                <label class="form-label" for="name" style="margin-left: 0px;">cookieName</label>
+                <div class="form-notch">
+                    <div class="form-notch-leading" style="width: 9px;"></div>
+                    <div class="form-notch-middle" style="width: 114.4px;"></div>
+                    <div class="form-notch-trailing"></div>
+                </div>
+            </div>
+
+            <div class="form-outline mb-4">
+                <input type="text" id="value" name="value" class="form-control">
+                <label class="form-label" for="value" style="margin-left: 0px;">cookieValue</label>
+                <div class="form-notch">
+                    <div class="form-notch-leading" style="width: 9px;"></div>
+                    <div class="form-notch-middle" style="width: 114.4px;"></div>
+                    <div class="form-notch-trailing"></div>
+                </div>
+            </div>
+
+            <div class="form-outline mb-4">
+                <input type="number" id="time" name="time" class="form-control">
+                <label class="form-label" for="time" style="margin-left: 0px;">cookieTime</label>
+                <div class="form-notch">
+                    <div class="form-notch-leading" style="width: 9px;"></div>
+                    <div class="form-notch-middle" style="width: 114.4px;"></div>
+                    <div class="form-notch-trailing"></div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">makeCookie</button>
+        </form>
+    </div>
+    <hr>
+    <button id="makeCookie" type="button" class="btn btn-primary m-1">makeCookie</button>
+    <button id="getCookie" type="button" class="btn btn-primary m-1">getCookie</button>
+    <button id="deleteCookie" type="button" class="btn btn-primary m-1">deleteCookie</button>
+</div>
+
+<script>
+
+
+
+
+    $("#cookieTestForm").on("submit", (e)=>{
+        e.preventDefault();
+        let {name, value, time} = getFormParams($("#cookieTestForm"));
+        setCookie(name, value, time);
+    });
+
+    $("#makeCookie").on("click", ()=>{
+        console.log("make");
+        setCookie("testCookie", "content?", 1);
+    });
+    $("#getCookie").on("click", ()=>{
+        console.log("read");
+        let cookie = getCookie("testCookie");
+        console.log(cookie);
+    });
+    $("#deleteCookie").on("click", ()=>{
+        console.log("delete");
+        deleteCookie("testCookie");
+    });
+
+
+</script>

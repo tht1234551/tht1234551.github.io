@@ -17,7 +17,10 @@
           <a class="nav-link" href="/view/blog">blog</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/view/test">test</a>
+          <a class="nav-link" href="/view/dbtest">dbtest</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/view/cookieTest">cookieTest</a>
         </li>
       </ul>
 
@@ -50,68 +53,15 @@
         <li class="nav-item me-3 me-lg-0">
           <a class="nav-link" href="/blog-template.html">sample</a>
         </li>
+        <li class="nav-item me-3 me-lg-0">
+          <a class="nav-link btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleCentralModal3" id="loginBtn">login</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
 <!-- Navbar -->
 
-<script>
-  navBtnActive();
-  navColorTrans();
-  navTogglerAction();
-
-  function navBtnActive() {
-    $(".innerPage > .nav-item > .nav-link").on("click", function (e) {
-      e.preventDefault();
-      loadByajax(this.href, $("#content"));
-      $("#content").addClass("bg-white text-dark");
-
-      if(window.innerWidth <= 991) {
-        $("#navCollapseBtn").click();
-        let con = $(".navbar-toggler")[0].ariaExpanded === "true";
-        navColorChange(con);
-      }
-      // $("#content").load(this.href);
-    });
-  }
-
-  function navColorTrans() {
-    $(window).scroll(function () {
-      let con = $(".navbar-toggler")[0].ariaExpanded === "true";
-      if(con) return;
-      navColorChange($(window).scrollTop() > 0);
-    });
-  }
-
-  function navTogglerAction() {
-    $("nav > .container-fluid > .navbar-toggler").on("click", function () {
-      let con = this.ariaExpanded === "true";
-      if(!($(window).scrollTop() > 0)) navColorChange(con);
-    });
-  }
-
-  function navColorChange(condition) {
-    if(condition){
-      whiteNav();
-    }
-    else{
-      notWhiteNav();
-    }
-  }
-
-  function whiteNav() {
-    $("nav").addClass("bg-white");
-    $("nav").addClass("navbar-light");
-    $("nav").removeClass("navbar-dark");
-  }
-
-  function notWhiteNav() {
-    $("nav").removeClass("bg-white");
-    $("nav").removeClass("navbar-light");
-    $("nav").addClass("navbar-dark");
-  }
+<div id="loginModal"></div>
 
 
-
-</script>
