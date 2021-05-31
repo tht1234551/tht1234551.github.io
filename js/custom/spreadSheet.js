@@ -1,28 +1,36 @@
 console.log("exel test module...");
 
 
-let url = "https://script.google.com/macros/s/AKfycbwO-VrOz_JxoDsxv2aVIfIvzT10K4Ls4ZeCH2kK9n9Jq03NHCIjwxq_cjwDsvD3pKuDSg/exec";
+let url = "https://script.google.com/macros/s/AKfycbzvGu1CYpbtxnvORlmh1B8yLXp1MioY_3nCDg5pZZMr6LbaPsxvlj9RRlEvzcfc_xYYmA/exec";
 
 function write(){
-    $.ajax({
-        url: url,
-        data: {A:"a", B:"f"},
-        type: "POST"
-    }).done((result)=>{
-        console.log(result);
-    }).fail(()=>{
-        console.log("fail");
+    return new Promise((res, rej)=>{
+        $.ajax({
+            url: url,
+            data: {A:"a", B:"f"},
+            type: "POST"
+        }).done((result)=>{
+            console.log(result);
+            res(result);
+        }).fail(()=>{
+            console.log("fail");
+            rej("fail");
+        });
     });
 }
 
 function load(){
-    $.ajax({
-        url: url,
-        type: "GET"
-    }).done((result)=>{
-        console.log(result);
-    }).fail(()=>{
-        console.log("fail");
-    });
+    return new Promise((res, rej)=>{
+        $.ajax({
+            url: url,
+            type: "GET"
+        }).done((result)=>{
+            console.log(result);
+            res(result);
+        }).fail(()=>{
+            console.log("fail");
+            rej("fail");
+        });
+    })
 }
 
