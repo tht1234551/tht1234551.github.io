@@ -50,6 +50,6 @@ function getFormParams(obj) {
 
 function documentClick() {
     $(document).on("click",()=>{
-        console.log("document click");
+        // console.log("document click");
     });
 }

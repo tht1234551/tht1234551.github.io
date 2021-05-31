@@ -1,13 +1,14 @@
 console.log("database module...");
 
 
-let url = "https://script.google.com/macros/s/AKfycbxKCGItNBQVzfh3m1yRms1bcXAHlxVrmmEi5Sh4Kq-NOfNvhHP8i3Ji7nmqS3UMvZqdLg/exec";
+let url = "https://script.google.com/macros/s/AKfycbycAiPwJ4Sx1-hUQD1hyT2iW9jUgpN9Y02kgUvlWY5s6mve19_SYWc8P1py8Jj0OqsGHw/exec";
 
 function write(){
     return new Promise((res, rej)=>{
         $.ajax({
             url: url,
             type: "POST",
+            dataType : 'json',
             data: {
                 A:"a",
                 B:"f",
@@ -28,9 +29,10 @@ function read(getType, sheetName){
         $.ajax({
             url: url,
             type: "GET",
+            dataType : 'json',
             data : {
                 getType : getType,
-                sheetName : sheetName
+                sheetName : sheetName,
             }
         }).done((result)=>{
             console.log(result);
@@ -42,3 +44,25 @@ function read(getType, sheetName){
     })
 }
 
+function login(getType, sheetName, param){
+    return new Promise((res, rej)=>{
+        console.log(param);
+        $.ajax({
+            url: url,
+            type: "GET",
+            dataType : 'json',
+            data : {
+                getType : getType,
+                sheetName : sheetName,
+                id : param.id,
+                password : param.password
+            }
+        }).done((result)=>{
+            console.log(result);
+            res(result);
+        }).fail(()=>{
+            console.log("fail");
+            rej();
+        });
+    })
+}
