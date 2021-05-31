@@ -312,3 +312,7 @@ nav {
 .alignItems {
     align-items: center;
 }
+
+.whiteText {
+    color: #ffffffd9!important;
+}
