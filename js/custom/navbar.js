@@ -75,11 +75,13 @@ function navColorChange(condition) {
 function whiteNav() {
     $("nav").addClass("bg-white");
     $("nav").addClass("navbar-light");
+    $("nav").addClass("navshadowShow");
     $("nav").removeClass("navbar-dark");
 }
 
 function notWhiteNav() {
     $("nav").removeClass("bg-white");
     $("nav").removeClass("navbar-light");
+    $("nav").removeClass("navshadowShow");
     $("nav").addClass("navbar-dark");
 }
