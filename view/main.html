@@ -92,7 +92,7 @@
 $(document).ready(()=>{
     let widowSize = window.innerWidth;
     animation(widowSize);
-    shadowClick();
+    // shadowClick();
     detailsClick();
 });
 
@@ -227,19 +227,23 @@ function projectCardHoverAction(params) {
 
 function detailsClick(){
     $(".detailsBtn").on("click",(e)=>{
-        console.log("click")
-        // let obj = $(e.currentTarget);
-        $("#shadow").removeClass('displayNone');
-        $("#shadow").addClass('show');
+        let shadow = "<div id='shadow' class='modal-backdrop fade'></div>";
+        $('body').append(shadow);
+        setTimeout(()=>{
+            $("#shadow").addClass('show');
+        }, 1);
+        
+        shadowClick();
     });
 }
 
 function shadowClick(){
     $("#shadow").on("click",(e)=>{
         let obj = $(e.currentTarget);
-        // console.log(obj);
         obj.removeClass('show');
-        obj.addClass('displayNone');
+        setTimeout(()=>{
+            $("#shadow").remove();
+        }, 150);
     });
 }
 
