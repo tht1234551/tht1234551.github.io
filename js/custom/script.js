@@ -4,6 +4,7 @@ pageInit();
 
 $(document).ready(()=>{
     documentClick();
+
 });
 
 

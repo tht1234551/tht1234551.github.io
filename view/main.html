@@ -56,25 +56,26 @@
                 <span class="subTitle">project</span>
                 
                 <span class="myselfContent projectCardContent">
-                    <div class="card projectCard">
+                    <div class="card projectCard shadow-1-strong">
                         <img src="../img/swime.png" class="card-img-top" alt="...">
                         <div class="card-body btnBottom">
                             <div>
-                                <h5 class="card-title">모임사이트</h5>
+                                <h4 class="card-title">Swime</h4>
+
                                 <p class="card-text">수도권 지역의 코딩 스터디를 주최하고 참여한다</p>
                             </div>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <a class="btn btn-primary detailsBtn">Details</a>
                         </div>
                     </div>
 
-                    <div class="card projectCard">
+                    <div class="card projectCard shadow-1-strong">
                         <img src="https://mdbootstrap.com/img/new/standard/city/041.jpg" class="card-img-top" alt="...">
                         <div class="card-body btnBottom">
                             <div>
                                 <h5 class="card-title">모임사이트</h5>
                                 <p class="card-text">수도권 지역의 코딩 스터디를 주최하고 참여한다</p>
                             </div>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <a class="btn btn-primary detailsBtn">Details</a>
                         </div>
                     </div>
 
@@ -87,140 +88,161 @@
 
 
 <script>
-    user = JSON.parse(getCookie("user"));
+
+$(document).ready(()=>{
+    let widowSize = window.innerWidth;
+    animation(widowSize);
+    shadowClick();
+    detailsClick();
+});
+
+async function animation(widowSize) {
+    if(widowSize >= 800) {
+        await transformBox(15); // 상자 돌리기
+        await moveBox(44);
+        await textMoveDown(23);
+        await textMoveLeft(0);
+        await textMoveUp(23);
+        await transformBox2(15);
+        await transformBox3(1, 30);
+    }
+    else if(widowSize < 800){
+        console.log("800보다 작습니다");
+        await transformBox(7); // 상자 돌리기
+        await moveBox(19);
+        await textMoveDown(15);
+        await textMoveLeft(0);
+        await textMoveUp(15);
+        await transformBox2(15);
+        await transformBox3(1, 13);
+    }
+    
+}
+
+function transformBox(size) {
+    return new Promise((resolve, reject)=>{
+        setTimeout(function (size) {
+            console.log("transformBox");
+            $("#box").css("width", size + 'rem');
+            $("#box").css("height", size + 'rem');
+            $("#box").css("transform", 'rotateZ(180deg)');
+            // $("#box").css("transition", "width 1s, height 1s, transform 1s");
+            resolve();
+        }, 100, size);
+    });
+}
+
+function transformBox2(size) {
+    return new Promise((resolve, reject)=>{
+        setTimeout(function (size) {
+            console.log("transformBox2");
+            $("#box").css("transform", 'rotateZ(0deg)');
+            resolve();
+        }, 500, size);
+    });
+}
+
+function transformBox3(size, boxSize) {
+    return new Promise((resolve, reject)=>{
+        setTimeout(function (size, boxSize) {
+            console.log("transformBox3");
+            $("#box").css("width", size + 'rem');
+            $(".leftContent").css("width", size + 'rem');
+            $(".myselfBox").css("width", boxSize + 'rem');
+            resolve();
+        }, 700, size, boxSize);
+    });
+}
+
+function moveBox(size) {
+    return new Promise((resolve, reject)=>{
+        setTimeout(function (size) {
+            console.log("moveBox");
+            $(".myself > div").css("width", size + 'rem');
+            resolve();
+        }, 1000, size);
+    });
+}
 
 
-    $(document).ready(()=>{
-        let widowSize = window.innerWidth;
-        animation(widowSize);
+function textMoveDown(locale) {
+    return new Promise((resolve, reject)=>{
+        setTimeout(function (locale) {
+            console.log("textMoveDown");
+            $(".rightContent > span:nth-child(2) > h1").css("margin-top" , locale + 'px');
+            resolve();
+        }, 500, locale);
+    });
+}
+
+function textMoveLeft(locale) {
+    return new Promise((resolve, reject)=>{
+        setTimeout(function (locale) {
+            console.log("textMoveLeft");
+            $(".rightContent > span:nth-child(2) > h1 > span:nth-child(2) > span").css("margin-left" , locale + 'px');
+            resolve();
+        }, 500, locale);
+    });
+}
+
+function textMoveUp(locale) {
+    return new Promise((resolve, reject)=>{
+        setTimeout(function (locale) {
+            console.log("textMoveUp");
+            $(".rightContent > span:nth-child(3) > h1").css("margin-top" , locale + 'px');
+            resolve();
+        }, 500, locale);
+    });
+}
+
+function projectCardHoverAction(params) {
+    let obj;
+    let left;
+    let right;
+    let backshadow = $("#backshadow");
+
+    $(".projectCard").mouseenter((e)=>{
+        obj = $(e.currentTarget);
+        left = $(obj[0].children[0]);
+        right = $(obj[0].children[1]);
+
+        obj.addClass('hoverProjectCard');
+        right.show();
+        backshadow.show();
+        backshadow.addClass('show');
     });
 
-    async function animation(widowSize) {
-        if(widowSize >= 800) {
-            await transformBox(15); // 상자 돌리기
-            await moveBox(44);
-            await textMoveDown(23);
-            await textMoveLeft(0);
-            await textMoveUp(23);
-            await transformBox2(15);
-            await transformBox3(1, 30);
-        }
-        else if(widowSize < 800){
-            console.log("800보다 작습니다");
-            await transformBox(7); // 상자 돌리기
-            await moveBox(19);
-            await textMoveDown(15);
-            await textMoveLeft(0);
-            await textMoveUp(15);
-            await transformBox2(15);
-            await transformBox3(1, 13);
-        }
-        
-    }
+    $(".projectCard").mouseleave((e)=>{
+        obj = $(e.currentTarget);
+        left = $(obj[0].children[0]);
+        right = $(obj[0].children[1]);
 
-    function transformBox(size) {
-        return new Promise((resolve, reject)=>{
-            setTimeout(function (size) {
-                console.log("transformBox");
-                $("#box").css("width", size + 'rem');
-                $("#box").css("height", size + 'rem');
-                $("#box").css("transform", 'rotateZ(180deg)');
-                // $("#box").css("transition", "width 1s, height 1s, transform 1s");
-                resolve();
-            }, 100, size);
-        });
-    }
-
-    function transformBox2(size) {
-        return new Promise((resolve, reject)=>{
-            setTimeout(function (size) {
-                console.log("transformBox2");
-                $("#box").css("transform", 'rotateZ(0deg)');
-                resolve();
-            }, 500, size);
-        });
-    }
-
-    function transformBox3(size, boxSize) {
-        return new Promise((resolve, reject)=>{
-            setTimeout(function (size, boxSize) {
-                console.log("transformBox3");
-                $("#box").css("width", size + 'rem');
-                $(".leftContent").css("width", size + 'rem');
-                $(".myselfBox").css("width", boxSize + 'rem');
-                resolve();
-            }, 700, size, boxSize);
-        });
-    }
-
-    function moveBox(size) {
-        return new Promise((resolve, reject)=>{
-            setTimeout(function (size) {
-                console.log("moveBox");
-                $(".myself > div").css("width", size + 'rem');
-                resolve();
-            }, 1000, size);
-        });
-    }
+        obj.removeClass('hoverProjectCard');
+        right.hide();
+        backshadow.hide();
+        backshadow.removeClass('show');
+    });
+}
 
 
-    function textMoveDown(locale) {
-        return new Promise((resolve, reject)=>{
-            setTimeout(function (locale) {
-                console.log("textMoveDown");
-                $(".rightContent > span:nth-child(2) > h1").css("margin-top" , locale + 'px');
-                resolve();
-            }, 500, locale);
-        });
-    }
+function detailsClick(){
+    $(".detailsBtn").on("click",(e)=>{
+        console.log("click")
+        // let obj = $(e.currentTarget);
+        $("#shadow").removeClass('displayNone');
+        $("#shadow").addClass('show');
+    });
+}
 
-    function textMoveLeft(locale) {
-        return new Promise((resolve, reject)=>{
-            setTimeout(function (locale) {
-                console.log("textMoveLeft");
-                $(".rightContent > span:nth-child(2) > h1 > span:nth-child(2) > span").css("margin-left" , locale + 'px');
-                resolve();
-            }, 500, locale);
-        });
-    }
+function shadowClick(){
+    $("#shadow").on("click",(e)=>{
+        let obj = $(e.currentTarget);
+        // console.log(obj);
+        obj.removeClass('show');
+        obj.addClass('displayNone');
+    });
+}
 
-    function textMoveUp(locale) {
-        return new Promise((resolve, reject)=>{
-            setTimeout(function (locale) {
-                console.log("textMoveUp");
-                $(".rightContent > span:nth-child(3) > h1").css("margin-top" , locale + 'px');
-                resolve();
-            }, 500, locale);
-        });
-    }
-
-    function projectCardHoverAction(params) {
-        let obj;
-        let left;
-        let right;
-        let backshadow = $("#backshadow");
-
-        $(".projectCard").mouseenter((e)=>{
-            obj = $(e.currentTarget);
-            left = $(obj[0].children[0]);
-            right = $(obj[0].children[1]);
-
-            obj.addClass('hoverProjectCard');
-            right.show();
-            backshadow.show();
-            backshadow.addClass('show');
-        });
-
-        $(".projectCard").mouseleave((e)=>{
-            obj = $(e.currentTarget);
-            left = $(obj[0].children[0]);
-            right = $(obj[0].children[1]);
-
-            obj.removeClass('hoverProjectCard');
-            right.hide();
-            backshadow.hide();
-            backshadow.removeClass('show');
-        });
-    }
+    
 
 </script>

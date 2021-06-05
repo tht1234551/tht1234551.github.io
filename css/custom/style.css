@@ -409,3 +409,23 @@ nav {
     margin-left: auto;
     margin-right: auto;
 }
+.displayNone{
+    display: none;
+}
+
+.disabled {
+    pointer-events:none;
+}
+
+#shadow {
+    /* display: none;
+    width: 100%;
+    height: 100vh; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+}

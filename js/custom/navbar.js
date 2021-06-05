@@ -1,11 +1,12 @@
 console.log("navbar module...");
 
-
+user = JSON.parse(getCookie("user"));
 
 
 
 
 $(document).ready( function() {
+    
     loginNav();
     navBtnActive();
     navColorTrans();
