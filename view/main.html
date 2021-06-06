@@ -64,7 +64,7 @@
 
                                 <p class="card-text">수도권 지역의 코딩 스터디를 주최하고 참여한다</p>
                             </div>
-                                <a class="btn btn-primary detailsBtn">Details</a>
+                                <a class="btn btn-primary detailsBtn" data-mdb-toggle="modal" data-mdb-target="#exampleModalXl">Details</a>
                         </div>
                     </div>
 
@@ -92,7 +92,7 @@ $(document).ready(()=>{
     let widowSize = window.innerWidth;
     animation(widowSize);
     // shadowClick();
-    detailsClick();
+    // detailsClick();
 });
 
 async function animation(widowSize) {
@@ -224,49 +224,49 @@ function projectCardHoverAction(params) {
 }
 
 
-function detailsClick(){
-    $(".detailsBtn").on("click",(e)=>{
-        let shadow = "<div id='shadow' class='modal-backdrop fade'></div>";
-        let projectDetails = ""
-            + "<div class='detail fade' style=''>"
-            + "    <div class='closeBtn btn btn-danger'>X</div>"
-            + "        <div class='detailContent'>"
-            + "            <img src='../img/swime.png' class='card-img-top' alt='..'><div>test"
-            + "        </div>"
-            + "   </div>"
-            + "</div>";
+// function detailsClick(){
+//     $(".detailsBtn").on("click",(e)=>{
+//         let shadow = "<div id='shadow' class='modal-backdrop fade'></div>";
+//         let projectDetails = ""
+//             + "<div class='detail fade' style=''>"
+//             + "    <div class='closeBtn btn btn-danger'>X</div>"
+//             + "        <div class='detailContent'>"
+//             + "            <img src='../img/swime.png' class='card-img-top' alt='..'><div>test"
+//             + "        </div>"
+//             + "   </div>"
+//             + "</div>";
 
 
-        $('body').append(shadow);
-        $('body').append(projectDetails);
-        setTimeout(()=>{
-            $("#shadow").addClass('show');
-            $(".detail").addClass('show');
-        }, 1);
+//         $('body').append(shadow);
+//         $('body').append(projectDetails);
+//         setTimeout(()=>{
+//             $("#shadow").addClass('show');
+//             $(".detail").addClass('show');
+//         }, 1);
 
-        $(".closeBtn").on('click',(e)=>{
-            shadowClickAction();
-        });
-        shadowClick();
-    });
-}
+//         $(".closeBtn").on('click',(e)=>{
+//             shadowClickAction();
+//         });
+//         shadowClick();
+//     });
+// }
 
-function shadowClick(){
-    $("#shadow").on("click",(e)=>{
-        // let obj = $(e.currentTarget);
-        shadowClickAction();
-    });
-}
+// function shadowClick(){
+//     $("#shadow").on("click",(e)=>{
+//         // let obj = $(e.currentTarget);
+//         shadowClickAction();
+//     });
+// }
 
-function shadowClickAction(){
-    $("#shadow").removeClass('show');
-    $(".detail").removeClass('show');
-    setTimeout(()=>{
-        $("#shadow").remove();
-        $(".detail").remove();
-    }, 150);
-}
+// function shadowClickAction(){
+//     $("#shadow").removeClass('show');
+//     $(".detail").removeClass('show');
+//     setTimeout(()=>{
+//         $("#shadow").remove();
+//         $(".detail").remove();
+//     }, 150);
+// }
 
-    
+
 
 </script>

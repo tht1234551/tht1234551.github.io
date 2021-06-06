@@ -13,6 +13,7 @@ async function pageInit(){
     await loadByajax("/view/loginModal", $("#loginModal"));
     await loadByajax('/view/main', $("#content"));
     await loadByajax('/view/include/footer', $("#footerPlace"));
+    await loadByajax('/view/detailsModal', $("#customModal"));
 }
 
 
