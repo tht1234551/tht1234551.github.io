@@ -10,10 +10,10 @@ $(document).ready(()=>{
 
 async function pageInit(){
     await loadByajax('/view/include/nav', $("#navPlace"));
-    await loadByajax("/view/loginModal", $("#loginModal"));
+    await loadByajax("/view/modal/loginModal", $("#loginModal"));
     await loadByajax('/view/main', $("#content"));
     await loadByajax('/view/include/footer', $("#footerPlace"));
-    await loadByajax('/view/detailsModal', $("#customModal"));
+    await loadByajax('/view/modal/detailsModal', $("#customModal"));
 }
 
 

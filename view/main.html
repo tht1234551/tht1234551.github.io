@@ -64,7 +64,7 @@
 
                                 <p class="card-text">수도권 지역의 코딩 스터디를 주최하고 참여한다</p>
                             </div>
-                                <a class="btn btn-primary detailsBtn" data-mdb-toggle="modal" data-mdb-target="#exampleModalXl">Details</a>
+                            <button type="button" class="btn btn-primary detailsBtn" data-num='1' data-mdb-toggle="modal" data-mdb-target="#detailsModal">Details</button>
                         </div>
                     </div>
 
@@ -75,7 +75,7 @@
                                 <h5 class="card-title">모임사이트</h5>
                                 <p class="card-text">수도권 지역의 코딩 스터디를 주최하고 참여한다</p>
                             </div>
-                                <a class="btn btn-primary detailsBtn">Details</a>
+                            <button type="button" class="btn btn-primary detailsBtn" data-num='2' data-mdb-toggle="modal" data-mdb-target="#detailsModal">Details</button>
                         </div>
                     </div>
 
@@ -92,7 +92,7 @@ $(document).ready(()=>{
     let widowSize = window.innerWidth;
     animation(widowSize);
     // shadowClick();
-    // detailsClick();
+    detailsClick();
 });
 
 async function animation(widowSize) {
@@ -223,6 +223,30 @@ function projectCardHoverAction(params) {
     });
 }
 
+function detailsClick(){
+    $(".card-body > button").on("click",(e)=>{
+        let who = e.currentTarget.dataset.num;
+        if(who === undefined) {
+            alert('해당 내용이 존재 하지 않습니다');
+            return;
+        }
+        if(who === "1"){
+            modalMaker("프로젝트1","프로젝트1의 내용");
+        }
+        if(who === "2"){
+            modalMaker("프로젝트2","프로젝트2의 내용");
+        }
+    });
+}
+
+function modalMaker(title, body){
+    let modalSelecter = {
+        title : '#detailsModal > .modal-dialog > .modal-content > .modal-header > .modal-title',
+        body : '#detailsModal > .modal-dialog > .modal-content > .modal-body'
+    }
+    $(modalSelecter.title).html(title);
+    $(modalSelecter.body).html(body);
+}
 
 // function detailsClick(){
 //     $(".detailsBtn").on("click",(e)=>{
