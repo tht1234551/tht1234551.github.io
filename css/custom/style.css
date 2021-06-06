@@ -429,3 +429,32 @@ nav {
     height: 100vh;
     background-color: #000;
 }
+
+.detail {
+    /* padding-top: 4rem; */
+    margin: auto;
+    width: 100%;
+    position: fixed;
+    top: 0rem;
+    left: 0;
+    z-index: 1031;
+    /* background-color: rgba(79, 255, 88, 0.466); */
+}
+
+.detailContent {
+    padding-top: 5rem;
+    width: 80%;
+    margin: auto;
+}
+
+.detailContent * {
+    color: white;
+}
+
+.closeBtn {
+    font-size: 1rem;
+    /* background-color: aqua; */
+    position: absolute;
+    top: 25px;
+    right: 30px;
+}

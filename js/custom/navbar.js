@@ -6,12 +6,12 @@ user = JSON.parse(getCookie("user"));
 
 
 $(document).ready( function() {
-    
-    loginNav();
-    navBtnActive();
-    navColorTrans();
-    navTogglerAction();
-    loadByajax("/view/loginModal", $("#loginModal"));
+    setTimeout(function(){
+        loginNav();
+        navBtnActive();
+        navColorTrans();
+        navTogglerAction();
+    },100);
     
 });
 
@@ -21,7 +21,8 @@ function loginNav(params) {
         $("#logoutBtn").show();
     }
     else {
-        
+        $("#loginBtn").show();
+        $("#logoutBtn").hide();
     }
 }
 
