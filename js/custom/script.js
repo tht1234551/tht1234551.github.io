@@ -8,24 +8,30 @@ $(document).ready(()=>{
 });
 
 
-function pageInit(){
-    loadByajax('/view/include/nav', $("#navPlace"));
-    loadByajax('/view/main', $("#content"));
-    loadByajax('/view/include/footer', $("#footerPlace"));
+async function pageInit(){
+    await loadByajax('/view/include/nav', $("#navPlace"));
+    await loadByajax("/view/loginModal", $("#loginModal"));
+    await loadByajax('/view/main', $("#content"));
+    await loadByajax('/view/include/footer', $("#footerPlace"));
 }
 
 
 
 function loadByajax(url, place) {
-    $.ajax({
-        url : url + '.html',
+    return new Promise((res, rej)=>{
+        $.ajax({
+            url : url + '.html',
+        })
+        .done(function (data, textStatus, xhr) {
+            $(place).html(data);
+            res();
+        })
+        .fail(function(data, textStatus, errorThrown){
+            console.log("error!!!");
+            rej();
+        });
     })
-    .done(function (data, textStatus, xhr) {
-        $(place).html(data);
-    })
-    .fail(function(data, textStatus, errorThrown){
-        console.log("error!!!");
-    });
+    
 }
 
 function getUrlParams() {     
