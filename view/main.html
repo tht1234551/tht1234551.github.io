@@ -28,6 +28,7 @@
             <span class="myselfContent d-block">
                 <h3>{000적인 개발자}</h3>
                 안녕하세요<br>
+                개발자 정형진입니다<br>
                 이상의 뜨거운지라, 가장 있으며, 같이, 이상, 힘차게 어디 심장은 피다. 원질이 것은 청춘의 봄바람이다. 그들은 피에 것은 웅대한 곧 그와 수 사막이다. 무엇이 풍부하게 일월과 온갖 위하여서. 별과 설레는 생의 튼튼하며, 뜨고, 동산에는 대한 그들에게 아니다. 그들은 하여도 되는 인생의 봄바람이다. 인생에 수 긴지라 평화스러운 것이다. 밥을 품었기 피어나기 그들은 사라지지 대고, 봄바람이다. 위하여서 품에 지혜는 속잎나고, 청춘 사랑의 힘차게 착목한는 만물은 아름다우냐?
     원대하고, 이상의 생생하며, 그들은 열락의 끝까지 이상 피어나기 얼마나 봄바람이다. 사라지지 곳이 찬미를 얼음과 사랑의 들어 길지 피고, 인도하겠다는 황금시대다. 사라지지 찾아 인류의 위하여서. 찾아 동산에는 더운지라 이것은 방황하여도, 찾아다녀도, 가지에 무엇을 그들의 것이다. 구할 내는 과실이 얼음에 눈에 인생을 때까지 위하여, 공자는 봄바람이다. 할지라도 피가 바이며, 심장의 용기가 전인 몸이 얼음과 우리의 쓸쓸하랴? 낙원을 있으며, 과실이 영락과 크고 생의 이상은 수 사막이다. 피가 방지하는 속에 군영과 우리는 수 붙잡아 있다. 그들은 있는 그들을 교향악이다. 가지에 트고, 유소년에게서 낙원을 미인을 놀이 튼튼하며, 있으랴?
     오아이스도 능히 보이는 이상 풀이 끓는다. 불어 착목한는 있는 타오르고 풍부하게 황금시대다. 우리 그들에게 찬미를 바로 것이다. 공자는 장식하는 풀이 인류의 우리는 것이다. 위하여 따뜻한 우는 것이다. 동력은 보이는 풍부하게 없는 부패뿐이다. 충분히 할지니, 자신과 피에 천하를 그리하였는가? 이것을 있음으로써 든 피부가 방황하여도, 되려니와, 끓는다. 인간의 되려니와, 꾸며 행복스럽고 따뜻한 인생의 방황하여도, 것이다. 가치를 인도하겠다는 피가 속에 심장은 보내는 구하지 것이다.
@@ -55,25 +56,26 @@
                 <span class="subTitle">project</span>
                 
                 <span class="myselfContent projectCardContent">
-                    <div class="card projectCard">
+                    <div class="card projectCard shadow-1-strong">
                         <img src="../img/swime.png" class="card-img-top" alt="...">
                         <div class="card-body btnBottom">
                             <div>
-                                <h5 class="card-title">모임사이트</h5>
+                                <h4 class="card-title">Swime</h4>
+
                                 <p class="card-text">수도권 지역의 코딩 스터디를 주최하고 참여한다</p>
                             </div>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <button type="button" class="btn btn-primary detailsBtn" data-num='1' data-mdb-toggle="modal" data-mdb-target="#detailsModal">Details</button>
                         </div>
                     </div>
 
-                    <div class="card projectCard">
+                    <div class="card projectCard shadow-1-strong">
                         <img src="https://mdbootstrap.com/img/new/standard/city/041.jpg" class="card-img-top" alt="...">
                         <div class="card-body btnBottom">
                             <div>
                                 <h5 class="card-title">모임사이트</h5>
                                 <p class="card-text">수도권 지역의 코딩 스터디를 주최하고 참여한다</p>
                             </div>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <button type="button" class="btn btn-primary detailsBtn" data-num='2' data-mdb-toggle="modal" data-mdb-target="#detailsModal">Details</button>
                         </div>
                     </div>
 
@@ -82,144 +84,213 @@
         </div>
     </div>
 </div>
-<div id="backshadow" class="modal-backdrop fade" style="display: none;"></div>
 
 
 <script>
+
+$(document).ready(()=>{
+    let widowSize = window.innerWidth;
+    animation(widowSize);
+    // shadowClick();
+    detailsClick();
+});
+
+async function animation(widowSize) {
+    if(widowSize >= 800) {
+        await transformBox(15); // 상자 돌리기
+        await moveBox(44);
+        await textMoveDown(23);
+        await textMoveLeft(0);
+        await textMoveUp(23);
+        await transformBox2(15);
+        await transformBox3(1, 30);
+    }
+    else if(widowSize < 800){
+        console.log("800보다 작습니다");
+        await transformBox(7); // 상자 돌리기
+        await moveBox(19);
+        await textMoveDown(15);
+        await textMoveLeft(0);
+        await textMoveUp(15);
+        await transformBox2(15);
+        await transformBox3(1, 13);
+    }
     
+}
+
+function transformBox(size) {
+    return new Promise((resolve, reject)=>{
+        setTimeout(function (size) {
+            console.log("transformBox");
+            $("#box").css("width", size + 'rem');
+            $("#box").css("height", size + 'rem');
+            $("#box").css("transform", 'rotateZ(180deg)');
+            // $("#box").css("transition", "width 1s, height 1s, transform 1s");
+            resolve();
+        }, 100, size);
+    });
+}
+
+function transformBox2(size) {
+    return new Promise((resolve, reject)=>{
+        setTimeout(function (size) {
+            console.log("transformBox2");
+            $("#box").css("transform", 'rotateZ(0deg)');
+            resolve();
+        }, 500, size);
+    });
+}
+
+function transformBox3(size, boxSize) {
+    return new Promise((resolve, reject)=>{
+        setTimeout(function (size, boxSize) {
+            console.log("transformBox3");
+            $("#box").css("width", size + 'rem');
+            $(".leftContent").css("width", size + 'rem');
+            $(".myselfBox").css("width", boxSize + 'rem');
+            resolve();
+        }, 700, size, boxSize);
+    });
+}
+
+function moveBox(size) {
+    return new Promise((resolve, reject)=>{
+        setTimeout(function (size) {
+            console.log("moveBox");
+            $(".myself > div").css("width", size + 'rem');
+            resolve();
+        }, 1000, size);
+    });
+}
 
 
-    $(document).ready(()=>{
-        let widowSize = window.innerWidth;
-        animation(widowSize);
+function textMoveDown(locale) {
+    return new Promise((resolve, reject)=>{
+        setTimeout(function (locale) {
+            console.log("textMoveDown");
+            $(".rightContent > span:nth-child(2) > h1").css("margin-top" , locale + 'px');
+            resolve();
+        }, 500, locale);
+    });
+}
+
+function textMoveLeft(locale) {
+    return new Promise((resolve, reject)=>{
+        setTimeout(function (locale) {
+            console.log("textMoveLeft");
+            $(".rightContent > span:nth-child(2) > h1 > span:nth-child(2) > span").css("margin-left" , locale + 'px');
+            resolve();
+        }, 500, locale);
+    });
+}
+
+function textMoveUp(locale) {
+    return new Promise((resolve, reject)=>{
+        setTimeout(function (locale) {
+            console.log("textMoveUp");
+            $(".rightContent > span:nth-child(3) > h1").css("margin-top" , locale + 'px');
+            resolve();
+        }, 500, locale);
+    });
+}
+
+function projectCardHoverAction(params) {
+    let obj;
+    let left;
+    let right;
+    let backshadow = $("#backshadow");
+
+    $(".projectCard").mouseenter((e)=>{
+        obj = $(e.currentTarget);
+        left = $(obj[0].children[0]);
+        right = $(obj[0].children[1]);
+
+        obj.addClass('hoverProjectCard');
+        right.show();
+        backshadow.show();
+        backshadow.addClass('show');
     });
 
-    async function animation(widowSize) {
-        if(widowSize >= 800) {
-            await transformBox(15); // 상자 돌리기
-            await moveBox(44);
-            await textMoveDown(23);
-            await textMoveLeft(0);
-            await textMoveUp(23);
-            await transformBox2(15);
-            await transformBox3(1, 30);
+    $(".projectCard").mouseleave((e)=>{
+        obj = $(e.currentTarget);
+        left = $(obj[0].children[0]);
+        right = $(obj[0].children[1]);
+
+        obj.removeClass('hoverProjectCard');
+        right.hide();
+        backshadow.hide();
+        backshadow.removeClass('show');
+    });
+}
+
+function detailsClick(){
+    $(".card-body > button").on("click",(e)=>{
+        let who = e.currentTarget.dataset.num;
+        if(who === undefined) {
+            alert('해당 내용이 존재 하지 않습니다');
+            return;
         }
-        else if(widowSize < 800){
-            console.log("800보다 작습니다");
-            await transformBox(7); // 상자 돌리기
-            await moveBox(19);
-            await textMoveDown(15);
-            await textMoveLeft(0);
-            await textMoveUp(15);
-            await transformBox2(15);
-            await transformBox3(1, 13);
+        if(who === "1"){
+            modalMaker("프로젝트1","프로젝트1의 내용");
         }
-        
+        if(who === "2"){
+            modalMaker("프로젝트2","프로젝트2의 내용");
+        }
+    });
+}
+
+function modalMaker(title, body){
+    let modalSelecter = {
+        title : '#detailsModal > .modal-dialog > .modal-content > .modal-header > .modal-title',
+        body : '#detailsModal > .modal-dialog > .modal-content > .modal-body'
     }
+    $(modalSelecter.title).html(title);
+    $(modalSelecter.body).html(body);
+}
 
-    function transformBox(size) {
-        return new Promise((resolve, reject)=>{
-            setTimeout(function (size) {
-                console.log("transformBox");
-                $("#box").css("width", size + 'rem');
-                $("#box").css("height", size + 'rem');
-                $("#box").css("transform", 'rotateZ(180deg)');
-                // $("#box").css("transition", "width 1s, height 1s, transform 1s");
-                resolve();
-            }, 100, size);
-        });
-    }
-
-    function transformBox2(size) {
-        return new Promise((resolve, reject)=>{
-            setTimeout(function (size) {
-                console.log("transformBox2");
-                $("#box").css("transform", 'rotateZ(0deg)');
-                resolve();
-            }, 500, size);
-        });
-    }
-
-    function transformBox3(size, boxSize) {
-        return new Promise((resolve, reject)=>{
-            setTimeout(function (size, boxSize) {
-                console.log("transformBox3");
-                $("#box").css("width", size + 'rem');
-                $(".leftContent").css("width", size + 'rem');
-                $(".myselfBox").css("width", boxSize + 'rem');
-                resolve();
-            }, 700, size, boxSize);
-        });
-    }
-
-    function moveBox(size) {
-        return new Promise((resolve, reject)=>{
-            setTimeout(function (size) {
-                console.log("moveBox");
-                $(".myself > div").css("width", size + 'rem');
-                resolve();
-            }, 1000, size);
-        });
-    }
+// function detailsClick(){
+//     $(".detailsBtn").on("click",(e)=>{
+//         let shadow = "<div id='shadow' class='modal-backdrop fade'></div>";
+//         let projectDetails = ""
+//             + "<div class='detail fade' style=''>"
+//             + "    <div class='closeBtn btn btn-danger'>X</div>"
+//             + "        <div class='detailContent'>"
+//             + "            <img src='../img/swime.png' class='card-img-top' alt='..'><div>test"
+//             + "        </div>"
+//             + "   </div>"
+//             + "</div>";
 
 
-    function textMoveDown(locale) {
-        return new Promise((resolve, reject)=>{
-            setTimeout(function (locale) {
-                console.log("textMoveDown");
-                $(".rightContent > span:nth-child(2) > h1").css("margin-top" , locale + 'px');
-                resolve();
-            }, 500, locale);
-        });
-    }
+//         $('body').append(shadow);
+//         $('body').append(projectDetails);
+//         setTimeout(()=>{
+//             $("#shadow").addClass('show');
+//             $(".detail").addClass('show');
+//         }, 1);
 
-    function textMoveLeft(locale) {
-        return new Promise((resolve, reject)=>{
-            setTimeout(function (locale) {
-                console.log("textMoveLeft");
-                $(".rightContent > span:nth-child(2) > h1 > span:nth-child(2) > span").css("margin-left" , locale + 'px');
-                resolve();
-            }, 500, locale);
-        });
-    }
+//         $(".closeBtn").on('click',(e)=>{
+//             shadowClickAction();
+//         });
+//         shadowClick();
+//     });
+// }
 
-    function textMoveUp(locale) {
-        return new Promise((resolve, reject)=>{
-            setTimeout(function (locale) {
-                console.log("textMoveUp");
-                $(".rightContent > span:nth-child(3) > h1").css("margin-top" , locale + 'px');
-                resolve();
-            }, 500, locale);
-        });
-    }
+// function shadowClick(){
+//     $("#shadow").on("click",(e)=>{
+//         // let obj = $(e.currentTarget);
+//         shadowClickAction();
+//     });
+// }
 
-    function projectCardHoverAction(params) {
-        let obj;
-        let left;
-        let right;
-        let backshadow = $("#backshadow");
+// function shadowClickAction(){
+//     $("#shadow").removeClass('show');
+//     $(".detail").removeClass('show');
+//     setTimeout(()=>{
+//         $("#shadow").remove();
+//         $(".detail").remove();
+//     }, 150);
+// }
 
-        $(".projectCard").mouseenter((e)=>{
-            obj = $(e.currentTarget);
-            left = $(obj[0].children[0]);
-            right = $(obj[0].children[1]);
 
-            obj.addClass('hoverProjectCard');
-            right.show();
-            backshadow.show();
-            backshadow.addClass('show');
-        });
-
-        $(".projectCard").mouseleave((e)=>{
-            obj = $(e.currentTarget);
-            left = $(obj[0].children[0]);
-            right = $(obj[0].children[1]);
-
-            obj.removeClass('hoverProjectCard');
-            right.hide();
-            backshadow.hide();
-            backshadow.removeClass('show');
-        });
-    }
 
 </script>
