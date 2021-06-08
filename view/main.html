@@ -194,34 +194,34 @@ function textMoveUp(locale) {
     });
 }
 
-function projectCardHoverAction(params) {
-    let obj;
-    let left;
-    let right;
-    let backshadow = $("#backshadow");
+// function projectCardHoverAction(params) {
+//     let obj;
+//     let left;
+//     let right;
+//     let backshadow = $("#backshadow");
 
-    $(".projectCard").mouseenter((e)=>{
-        obj = $(e.currentTarget);
-        left = $(obj[0].children[0]);
-        right = $(obj[0].children[1]);
+//     $(".projectCard").mouseenter((e)=>{
+//         obj = $(e.currentTarget);
+//         left = $(obj[0].children[0]);
+//         right = $(obj[0].children[1]);
 
-        obj.addClass('hoverProjectCard');
-        right.show();
-        backshadow.show();
-        backshadow.addClass('show');
-    });
+//         obj.addClass('hoverProjectCard');
+//         right.show();
+//         backshadow.show();
+//         backshadow.addClass('show');
+//     });
 
-    $(".projectCard").mouseleave((e)=>{
-        obj = $(e.currentTarget);
-        left = $(obj[0].children[0]);
-        right = $(obj[0].children[1]);
+//     $(".projectCard").mouseleave((e)=>{
+//         obj = $(e.currentTarget);
+//         left = $(obj[0].children[0]);
+//         right = $(obj[0].children[1]);
 
-        obj.removeClass('hoverProjectCard');
-        right.hide();
-        backshadow.hide();
-        backshadow.removeClass('show');
-    });
-}
+//         obj.removeClass('hoverProjectCard');
+//         right.hide();
+//         backshadow.hide();
+//         backshadow.removeClass('show');
+//     });
+// }
 
 function detailsClick(){
     $(".card-body > button").on("click",(e)=>{
