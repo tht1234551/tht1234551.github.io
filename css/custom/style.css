@@ -352,15 +352,6 @@ nav {
     max-width: 800px;
 }
 
-.hoverProjectCard{
-    /* z-index: 30; */
-    /* left : -30%; */
-}
-
-.projectCard:hover {
-    /* background-color: antiquewhite; */
-    /* box-shadow: 5px 7px 15px 1px rgb(0 0 0 / 20%), 0 4px 20px 0 rgb(0 0 0 / 10%); */
-}
 
 .projectCard > img {
     object-fit: cover;
@@ -409,9 +400,6 @@ nav {
     flex-direction: column;
 }
 
-.modal-backdrop {
-    /* z-index: 10!important; */
-}
 
 .view100 > hr {
     width: 80%;
